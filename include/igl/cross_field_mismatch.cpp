@@ -27,8 +27,8 @@ namespace igl {
 
     const Eigen::MatrixBase<DerivedV> &V;
     const Eigen::MatrixBase<DerivedF> &F;
-    const Eigen::PlainObjectBase<DerivedV> &PD1;
-    const Eigen::PlainObjectBase<DerivedV> &PD2;
+    const Eigen::MatrixBase<DerivedV> &PD1;
+    const Eigen::MatrixBase<DerivedV> &PD2;
     
     DerivedV N;
 
@@ -71,8 +71,8 @@ namespace igl {
 public:
   inline MismatchCalculator(const Eigen::MatrixBase<DerivedV> &_V,
                             const Eigen::MatrixBase<DerivedF> &_F,
-                            const Eigen::PlainObjectBase<DerivedV> &_PD1,
-                            const Eigen::PlainObjectBase<DerivedV> &_PD2):
+                            const Eigen::MatrixBase<DerivedV> &_PD1,
+                            const Eigen::MatrixBase<DerivedV> &_PD2):
   V(_V),
   F(_F),
   PD1(_PD1),
@@ -104,8 +104,8 @@ public:
 template <typename DerivedV, typename DerivedF, typename DerivedM>
 IGL_INLINE void igl::cross_field_mismatch(const Eigen::MatrixBase<DerivedV> &V,
                                           const Eigen::MatrixBase<DerivedF> &F,
-                                          const Eigen::PlainObjectBase<DerivedV> &PD1,
-                                          const Eigen::PlainObjectBase<DerivedV> &PD2,
+                                          const Eigen::MatrixBase<DerivedV> &PD1,
+                                          const Eigen::MatrixBase<DerivedV> &PD2,
                                           const bool isCombed,
                                           Eigen::PlainObjectBase<DerivedM> &mismatch)
 {
@@ -125,8 +125,8 @@ IGL_INLINE void igl::cross_field_mismatch(const Eigen::MatrixBase<DerivedV> &V,
 
 #ifdef IGL_STATIC_LIBRARY
 // Explicit template instantiation
-template void igl::cross_field_mismatch<Eigen::Matrix<double, -1, 3, 0, -1, 3>, Eigen::Matrix<int, -1, 3, 0, -1, 3> >(Eigen::MatrixBase<Eigen::Matrix<double, -1, 3, 0, -1, 3> > const &, Eigen::MatrixBase<Eigen::Matrix<int, -1, 3, 0, -1, 3> > const &,  Eigen::PlainObjectBase<Eigen::Matrix<double, -1, 3, 0, -1, 3> > const &,  Eigen::PlainObjectBase<Eigen::Matrix<double, -1, 3, 0, -1, 3> > const &, const bool,  Eigen::PlainObjectBase<Eigen::Matrix<int, -1, 3, 0, -1, 3> > &);
-template void igl::cross_field_mismatch<Eigen::Matrix<double, -1, -1, 0, -1, -1>, Eigen::Matrix<int, -1, -1, 0, -1, -1> >( Eigen::MatrixBase<Eigen::Matrix<double, -1, -1, 0, -1, -1> > const &, Eigen::MatrixBase<Eigen::Matrix<int, -1, -1, 0, -1, -1> > const &, Eigen::PlainObjectBase<Eigen::Matrix<double, -1, -1, 0, -1, -1> > const &, Eigen::PlainObjectBase<Eigen::Matrix<double, -1, -1, 0, -1, -1> > const &, const bool, Eigen::PlainObjectBase<Eigen::Matrix<int, -1, -1, 0, -1, -1> > &);
-template void igl::cross_field_mismatch<Eigen::Matrix<double, -1, -1, 0, -1, -1>, Eigen::Matrix<int, -1, -1, 0, -1, -1>, Eigen::Matrix<int, -1, 3, 0, -1, 3> >(Eigen::MatrixBase<Eigen::Matrix<double, -1, -1, 0, -1, -1> > const &, Eigen::MatrixBase<Eigen::Matrix<int, -1, -1, 0, -1, -1> > const &, Eigen::PlainObjectBase<Eigen::Matrix<double, -1, -1, 0, -1, -1> > const &, Eigen::PlainObjectBase<Eigen::Matrix<double, -1, -1, 0, -1, -1> > const &, const bool, Eigen::PlainObjectBase<Eigen::Matrix<int, -1, 3, 0, -1, 3> > &);
+template void igl::cross_field_mismatch<Eigen::Matrix<double, -1, 3, 0, -1, 3>, Eigen::Matrix<int, -1, 3, 0, -1, 3> >(Eigen::MatrixBase<Eigen::Matrix<double, -1, 3, 0, -1, 3> > const &, Eigen::MatrixBase<Eigen::Matrix<int, -1, 3, 0, -1, 3> > const &,  Eigen::MatrixBase<Eigen::Matrix<double, -1, 3, 0, -1, 3> > const &,  Eigen::MatrixBase<Eigen::Matrix<double, -1, 3, 0, -1, 3> > const &, const bool,  Eigen::PlainObjectBase<Eigen::Matrix<int, -1, 3, 0, -1, 3> > &);
+template void igl::cross_field_mismatch<Eigen::Matrix<double, -1, -1, 0, -1, -1>, Eigen::Matrix<int, -1, -1, 0, -1, -1> >( Eigen::MatrixBase<Eigen::Matrix<double, -1, -1, 0, -1, -1> > const &, Eigen::MatrixBase<Eigen::Matrix<int, -1, -1, 0, -1, -1> > const &, Eigen::MatrixBase<Eigen::Matrix<double, -1, -1, 0, -1, -1> > const &, Eigen::MatrixBase<Eigen::Matrix<double, -1, -1, 0, -1, -1> > const &, const bool, Eigen::PlainObjectBase<Eigen::Matrix<int, -1, -1, 0, -1, -1> > &);
+template void igl::cross_field_mismatch<Eigen::Matrix<double, -1, -1, 0, -1, -1>, Eigen::Matrix<int, -1, -1, 0, -1, -1>, Eigen::Matrix<int, -1, 3, 0, -1, 3> >(Eigen::MatrixBase<Eigen::Matrix<double, -1, -1, 0, -1, -1> > const &, Eigen::MatrixBase<Eigen::Matrix<int, -1, -1, 0, -1, -1> > const &, Eigen::MatrixBase<Eigen::Matrix<double, -1, -1, 0, -1, -1> > const &, Eigen::MatrixBase<Eigen::Matrix<double, -1, -1, 0, -1, -1> > const &, const bool, Eigen::PlainObjectBase<Eigen::Matrix<int, -1, 3, 0, -1, 3> > &);
 
 #endif
